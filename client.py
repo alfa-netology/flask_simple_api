@@ -50,7 +50,7 @@ def delete_ad(ad_id):
 if __name__ == '__main__' and check_status():
     print(get_user(10))
 
-    new_user = {'name': 'user_20', 'password': 'admin', 'email': 'user_21@mail.com'}
+    new_user = {'name': 'user_21', 'password': 'admin', 'email': 'user_22@mail.com'}
     print(add_user(**new_user))
 
     new_ad = {'title': 'ad title #2', 'text': 'ad text #2', 'user_id': 13}
