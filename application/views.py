@@ -27,7 +27,7 @@ class UserView(MethodView):
         user.from_dict(data, new_user=True)
         db.session.add(user)
         db.session.commit()
-        return jsonify(user.to_dict())
+        return user.to_dict()
 
 class AdView(MethodView):
     @staticmethod
@@ -43,7 +43,7 @@ class AdView(MethodView):
         if 'title' not in data or 'text' not in data or 'user_id' not in data:
             return bad_request('must include title, text and user_id fields')
         if not User.query.filter_by(id=data['user_id']).first():
-            return bad_request('no such user')
+            return bad_request('no such user id')
         ad = Ad()
         ad.from_dict(data)
         db.session.add(ad)
@@ -60,7 +60,7 @@ class AdView(MethodView):
             bad_request('ad not found')
         ad.from_dict(data)
         db.session.commit()
-        return jsonify(ad.to_dict())
+        return ad.to_dict()
 
     @staticmethod
     def delete(ad_id):
