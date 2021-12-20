@@ -57,9 +57,9 @@ if __name__ == '__main__' and check_status():
     print(add_ad(**new_ad))
 
     edit_ad = {'title': 'ad title #100', 'text': 'ad text #100'}
-    print(update_ad(10, edit_ad))
+    print(update_ad(100, edit_ad))
 
     print(delete_ad(42))
 
-    print(get_ad(100))
+    print(get_ad(12))
 

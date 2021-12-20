@@ -57,10 +57,10 @@ class AdView(MethodView):
         ad = Ad.query.get(ad_id)
         data = request.json
         if not ad:
-            bad_request('ad not found')
+            return bad_request('ad not found')
         ad.from_dict(data)
         db.session.commit()
-        return jsonify(ad.to_dict())
+        return ad.to_dict()
 
     @staticmethod
     def delete(ad_id):
